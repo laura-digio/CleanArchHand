@@ -1,0 +1,17 @@
+/* 
+  Localizable.strings
+  CleanArchWrist
+
+  Created by Laura on 5/3/22.
+  
+*/
+
+// A
+
+// E
+"errorGenericTitle" = "Oops. Something went wrong. Try again!";
+
+// M
+"moduleHomeTitle" = "Topics";
+
+// Z
