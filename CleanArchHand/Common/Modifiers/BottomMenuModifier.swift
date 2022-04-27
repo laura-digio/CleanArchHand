@@ -12,6 +12,8 @@ struct BottomMenuModifier: ViewModifier {
     let image: Assets.Images
     let tag: AppConstants.BottomMenuSelection
 
+    @EnvironmentObject var appEnvironment: AppEnvironment
+
     func body(content: Content) -> some View {
         NavigationView {
             content
@@ -23,6 +25,9 @@ struct BottomMenuModifier: ViewModifier {
                 }
                 .tag(tag)
                 .navigationTitle(title)
+        }
+        .introspectNavigationController { navigationController in
+            appEnvironment.navigationControllers[tag] = navigationController
         }
     }
 }

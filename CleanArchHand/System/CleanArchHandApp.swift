@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import Introspect
 
 @main
 struct CleanArchHandApp: App {
@@ -22,6 +23,9 @@ struct CleanArchHandApp: App {
                         image: Assets.Images.iconApple,
                         tag: .home
                     ))
+            }
+            .introspectTabBarController { tabBarController in
+                appEnvironment.tabBarController = tabBarController
             }
             .environmentObject(appEnvironment)
         }

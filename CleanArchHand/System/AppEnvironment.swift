@@ -10,7 +10,9 @@ import SwiftUI
 final class AppEnvironment: ObservableObject {
     @Published var bottomMenuSelection: AppConstants.BottomMenuSelection = .home
 
-    var coordinator: UIViewController? {
-        return nil
+    var tabBarController: UITabBarController?
+    var navigationControllers: [AppConstants.BottomMenuSelection: UINavigationController] = [:]
+    var coordinator: UINavigationController? {
+        return navigationControllers[bottomMenuSelection]
     }
 }

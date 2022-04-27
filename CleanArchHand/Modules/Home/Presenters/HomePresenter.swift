@@ -33,4 +33,8 @@ extension HomePresenter: HomeViewOutput {
             }
         }
     }
+
+    func detailModule(appEnvironment: AppEnvironment, link: String?) {
+        wireframeInput?.detailModule(appEnvironment: appEnvironment, link: link)
+    }
 }

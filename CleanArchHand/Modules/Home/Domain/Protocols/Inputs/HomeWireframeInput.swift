@@ -14,4 +14,6 @@
 
 import Foundation
 
-protocol HomeWireframeInput: WireframeInput {}
+protocol HomeWireframeInput: WireframeInput {
+    func detailModule(appEnvironment: AppEnvironment, link: String?)
+}

@@ -17,4 +17,5 @@ import Foundation
 
 protocol HomeViewOutput: ViewOutput {
     func onRetrieve(viewObject: HomeView.ViewObject?)
+    func detailModule(appEnvironment: AppEnvironment, link: String?)
 }

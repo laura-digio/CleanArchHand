@@ -11,11 +11,14 @@ import SwiftUI
 struct HomeView: BaseView {
 	var output: HomeViewOutput?
 	@StateObject var viewObject: ViewObject
+    @EnvironmentObject var appEnvironment: AppEnvironment
 
 	var body: some View {
         switch viewObject.state {
         case .none, .`default`:
-            HomeViewBody(model: viewObject.viewModel)
+            HomeViewBody(model: viewObject.viewModel) { link in
+                output?.detailModule(appEnvironment: appEnvironment, link: link)
+            }
             .task {
                 output?.onRetrieve(viewObject: viewObject)
             }
@@ -25,6 +28,7 @@ struct HomeView: BaseView {
 
 struct HomeViewBody: View {
     let model: HomeViewModel?
+    let onTap: ((String?)->Void)?
 
     var body: some View {
         ScrollView(.vertical) {
@@ -32,7 +36,7 @@ struct HomeViewBody: View {
                 if let topics = model?.topics {
                     ForEach(topics, id: \.self) { topic in
                         MainCellView(label: topic.title) {
-                            DetailWireframe(params: DetailParams(link: topic.link)).view
+                            onTap?(topic.link)
                         }
                     }
                 }
@@ -44,7 +48,7 @@ struct HomeViewBody: View {
 #if DEBUG
 struct HomeViewBody_Previews: PreviewProvider {
     static var previews: some View {
-        HomeViewBody(model: HomeViewModel(topics: []))
+        HomeViewBody(model: HomeViewModel(topics: []), onTap: nil)
     }
 }
 #endif

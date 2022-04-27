@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D31A41D428195F1A00A3D400 /* Introspect in Frameworks */ = {isa = PBXBuildFile; productRef = D31A41D328195F1A00A3D400 /* Introspect */; };
 		D3C540472815C0DB0000E5AC /* NSError+Generic.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3C53FCB2815C0DB0000E5AC /* NSError+Generic.swift */; };
 		D3C540482815C0DB0000E5AC /* String+Custom.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3C53FCC2815C0DB0000E5AC /* String+Custom.swift */; };
 		D3C540492815C0DB0000E5AC /* Operator+Custom.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3C53FCD2815C0DB0000E5AC /* Operator+Custom.swift */; };
@@ -203,6 +204,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D3C540992815C2BD0000E5AC /* RealmSwift in Frameworks */,
+				D31A41D428195F1A00A3D400 /* Introspect in Frameworks */,
 				D3C540972815C2BD0000E5AC /* Realm in Frameworks */,
 				D3C540942815C2650000E5AC /* Alamofire in Frameworks */,
 			);
@@ -784,6 +786,7 @@
 				D3C540932815C2650000E5AC /* Alamofire */,
 				D3C540962815C2BD0000E5AC /* Realm */,
 				D3C540982815C2BD0000E5AC /* RealmSwift */,
+				D31A41D328195F1A00A3D400 /* Introspect */,
 			);
 			productName = CleanArchHand;
 			productReference = D3CEE20C27D51A6400D9E18F /* CleanArchHand.app */;
@@ -860,6 +863,7 @@
 			packageReferences = (
 				D3C540922815C2650000E5AC /* XCRemoteSwiftPackageReference "Alamofire" */,
 				D3C540952815C2BD0000E5AC /* XCRemoteSwiftPackageReference "realm-swift" */,
+				D31A41D228195F1A00A3D400 /* XCRemoteSwiftPackageReference "SwiftUI-Introspect" */,
 			);
 			productRefGroup = D3CEE20D27D51A6400D9E18F /* Products */;
 			projectDirPath = "";
@@ -1298,6 +1302,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		D31A41D228195F1A00A3D400 /* XCRemoteSwiftPackageReference "SwiftUI-Introspect" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/siteline/SwiftUI-Introspect";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
 		D3C540922815C2650000E5AC /* XCRemoteSwiftPackageReference "Alamofire" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/Alamofire/Alamofire";
@@ -1317,6 +1329,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		D31A41D328195F1A00A3D400 /* Introspect */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = D31A41D228195F1A00A3D400 /* XCRemoteSwiftPackageReference "SwiftUI-Introspect" */;
+			productName = Introspect;
+		};
 		D3C540932815C2650000E5AC /* Alamofire */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = D3C540922815C2650000E5AC /* XCRemoteSwiftPackageReference "Alamofire" */;

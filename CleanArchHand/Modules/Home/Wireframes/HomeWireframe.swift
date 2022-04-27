@@ -19,4 +19,11 @@ HomeView
     }
 }
 
-extension HomeWireframe: HomeWireframeInput {}
+extension HomeWireframe: HomeWireframeInput {
+    func detailModule(appEnvironment: AppEnvironment, link: String?) {
+        let params = DetailParams(link: link)
+        let view = DetailWireframe(params: params).view
+        let controller = UIHostingController(rootView: view)
+        appEnvironment.coordinator?.pushViewController(controller, animated: true)
+    }
+}
