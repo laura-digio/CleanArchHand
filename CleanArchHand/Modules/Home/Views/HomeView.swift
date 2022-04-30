@@ -16,7 +16,10 @@ struct HomeView: BaseView {
 	var body: some View {
         switch viewObject.state {
         case .none, .`default`:
-            HomeViewBody(model: viewObject.viewModel) { link in
+            HomeViewBody(
+                model: viewObject.viewModel,
+                isRequesting: viewObject.isRequesting
+            ) { link in
                 output?.detailModule(appEnvironment: appEnvironment, link: link)
             }
             .task {
@@ -28,6 +31,7 @@ struct HomeView: BaseView {
 
 struct HomeViewBody: View {
     let model: HomeViewModel?
+    let isRequesting: Bool?
     let onTap: ((String?)->Void)?
 
     var body: some View {
@@ -40,15 +44,20 @@ struct HomeViewBody: View {
                         }
                     }
                 }
+                else {
+                    Text("...")
+                        .redacted(reason: isRequesting ?? true ? .placeholder : [])
+                }
             }
         }
+        .padding(.vertical, 20)
     }
 }
 
 #if DEBUG
 struct HomeViewBody_Previews: PreviewProvider {
     static var previews: some View {
-        HomeViewBody(model: HomeViewModel(topics: []), onTap: nil)
+        HomeViewBody(model: HomeViewModel(topics: []), isRequesting: true, onTap: nil)
     }
 }
 #endif

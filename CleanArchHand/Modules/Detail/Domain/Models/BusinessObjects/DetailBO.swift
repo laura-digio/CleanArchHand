@@ -12,15 +12,18 @@ extension DetailInteractor {
     struct BusinessObject {
 		let viewState: DetailState?
         let isRequesting: Bool?
+        let link: String?
         let markdown: String?
 
         init(
             viewState: DetailState? = nil,
             isRequesting: Bool? = nil,
+            link: String? = nil,
             markdown: String? = nil
         ) {
             self.viewState = viewState
             self.isRequesting = isRequesting
+            self.link = link
             self.markdown = markdown
         }
     }

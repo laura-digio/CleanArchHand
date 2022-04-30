@@ -12,11 +12,31 @@ struct MainCellView: View {
     let action: (()->Void)?
 
     var body: some View {
-        Button {
-            action?()
-        } label: {
-            Text(label ?? "")
+        VStack(alignment: .leading, spacing: 0) {
+            Label {
+                Button {
+                    action?()
+                } label: {
+                    Text(label ?? "")
+                }.buttonStyle(ButtonStyle())
+            } icon: {
+                Image(systemName: "book")
+            }
+            .padding()
+
+            Divider()
+                .modifier(DividerModifier())
         }
-        .buttonStyle(ButtonStyle())
     }
 }
+
+#if DEBUG
+struct MainCellView_Previews: PreviewProvider {
+    static var previews: some View {
+        MainCellView(
+            label: "Separation of Concerns",
+            action: nil
+        )
+    }
+}
+#endif

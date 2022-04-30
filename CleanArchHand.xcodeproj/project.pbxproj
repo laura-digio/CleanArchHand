@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		D31A41D428195F1A00A3D400 /* Introspect in Frameworks */ = {isa = PBXBuildFile; productRef = D31A41D328195F1A00A3D400 /* Introspect */; };
+		D3C107CD281D1F550014D7A2 /* DividerModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3C107CC281D1F550014D7A2 /* DividerModifier.swift */; };
+		D3C107D0281D288C0014D7A2 /* SafariView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3C107CF281D288C0014D7A2 /* SafariView.swift */; };
+		D3C107D2281D2B470014D7A2 /* WebView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3C107D1281D2B470014D7A2 /* WebView.swift */; };
 		D3C540472815C0DB0000E5AC /* NSError+Generic.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3C53FCB2815C0DB0000E5AC /* NSError+Generic.swift */; };
 		D3C540482815C0DB0000E5AC /* String+Custom.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3C53FCC2815C0DB0000E5AC /* String+Custom.swift */; };
 		D3C540492815C0DB0000E5AC /* Operator+Custom.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3C53FCD2815C0DB0000E5AC /* Operator+Custom.swift */; };
@@ -112,6 +115,9 @@
 
 /* Begin PBXFileReference section */
 		D33D1C6127D51AB200170A06 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		D3C107CC281D1F550014D7A2 /* DividerModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DividerModifier.swift; sourceTree = "<group>"; };
+		D3C107CF281D288C0014D7A2 /* SafariView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SafariView.swift; sourceTree = "<group>"; };
+		D3C107D1281D2B470014D7A2 /* WebView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebView.swift; sourceTree = "<group>"; };
 		D3C53FCB2815C0DB0000E5AC /* NSError+Generic.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSError+Generic.swift"; sourceTree = "<group>"; };
 		D3C53FCC2815C0DB0000E5AC /* String+Custom.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String+Custom.swift"; sourceTree = "<group>"; };
 		D3C53FCD2815C0DB0000E5AC /* Operator+Custom.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Operator+Custom.swift"; sourceTree = "<group>"; };
@@ -227,6 +233,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		D3C107CE281D28730014D7A2 /* UIKit */ = {
+			isa = PBXGroup;
+			children = (
+				D3C107CF281D288C0014D7A2 /* SafariView.swift */,
+				D3C107D1281D2B470014D7A2 /* WebView.swift */,
+			);
+			path = UIKit;
+			sourceTree = "<group>";
+		};
 		D3C53FCA2815C0DB0000E5AC /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
@@ -633,6 +648,7 @@
 			children = (
 				D3C540312815C0DB0000E5AC /* TextModifier.swift */,
 				D3C540322815C0DB0000E5AC /* BottomMenuModifier.swift */,
+				D3C107CC281D1F550014D7A2 /* DividerModifier.swift */,
 			);
 			path = Modifiers;
 			sourceTree = "<group>";
@@ -648,6 +664,7 @@
 		D3C540352815C0DB0000E5AC /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				D3C107CE281D28730014D7A2 /* UIKit */,
 				D3C540362815C0DB0000E5AC /* MainCellView.swift */,
 			);
 			path = Views;
@@ -931,6 +948,7 @@
 				D3C5405A2815C0DB0000E5AC /* DetailAssembly.swift in Sources */,
 				D3C5404C2815C0DB0000E5AC /* HomeParams.swift in Sources */,
 				D3C540832815C0DB0000E5AC /* BottomMenuModifier.swift in Sources */,
+				D3C107D2281D2B470014D7A2 /* WebView.swift in Sources */,
 				D3C5407B2815C0DB0000E5AC /* Repository+Home.swift in Sources */,
 				D3C540612815C0DB0000E5AC /* DetailMapper.swift in Sources */,
 				D3C540582815C0DB0000E5AC /* DetailWireframe.swift in Sources */,
@@ -938,6 +956,7 @@
 				D3C5407C2815C0DB0000E5AC /* Repository.swift in Sources */,
 				D3C5408A2815C0DB0000E5AC /* BaseUseCaseExecutor.swift in Sources */,
 				D3C540562815C0DB0000E5AC /* HomeWireframeInput.swift in Sources */,
+				D3C107D0281D288C0014D7A2 /* SafariView.swift in Sources */,
 				D3C5407A2815C0DB0000E5AC /* AssetsConstants.swift in Sources */,
 				D3C540882815C0DB0000E5AC /* BaseUseCase.swift in Sources */,
 				D3C540572815C0DB0000E5AC /* HomeOnRetrieveUseCase.swift in Sources */,
@@ -968,6 +987,7 @@
 				D3C5404F2815C0DB0000E5AC /* HomeView.swift in Sources */,
 				D3C540842815C0DB0000E5AC /* ButtonStyle.swift in Sources */,
 				D3C5405B2815C0DB0000E5AC /* DetailPresenter.swift in Sources */,
+				D3C107CD281D1F550014D7A2 /* DividerModifier.swift in Sources */,
 				D3C540862815C0DB0000E5AC /* AppEnvironment.swift in Sources */,
 				D3C540602815C0DB0000E5AC /* DetailVO.swift in Sources */,
 				D3CEE21027D51A6400D9E18F /* CleanArchHandApp.swift in Sources */,

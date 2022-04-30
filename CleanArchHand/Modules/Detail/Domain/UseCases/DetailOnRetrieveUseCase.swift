@@ -19,7 +19,19 @@ struct DetailOnRetrieveUseCase: BaseUseCase {
 	}
 
     func execute(with params: String?, completion: @escaping Handler<Response>) {
+        let businessObject = Response(isRequesting: true)
+        completion(.success(businessObject))
+
         // TODO: request markdown
-        print("Link: \(params ?? "")")
+        print("Request contents of this link: \(params ?? "")")
+
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1.5) {
+            let bo = Response(
+                isRequesting: false,
+                link: params,
+                markdown: "[Google](google.es)"
+            )
+            completion(.success(bo))
+        }
     }
 }

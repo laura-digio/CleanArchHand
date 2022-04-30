@@ -10,14 +10,17 @@ import Foundation
 
 struct DetailViewModel {
     let link: String?
+    let markdown: String?
 
-    static func mapFromAPI(_ APIModel: String?) -> DetailViewModel? {
-        guard let APIModel = APIModel else {
-            return nil
-        }
+    init(link: String? = nil, markdown: String? = nil) {
+        self.link = link
+        self.markdown = markdown
+    }
 
+    static func mapFromAPI(link: String?, markdown: String?) -> DetailViewModel? {
         return DetailViewModel(
-            link: APIModel
+            link: link,
+            markdown: markdown
         )
     }
 }

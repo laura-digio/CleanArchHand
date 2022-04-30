@@ -14,7 +14,10 @@ final class DetailMapper: BaseMapper<DetailInteractor.BusinessObject, DetailView
 			return DetailView.ViewObject(
                 state: input.viewState,
                 isRequesting: input.isRequesting,
-                viewModel: DetailViewModel.mapFromAPI(input.markdown)
+                viewModel: DetailViewModel.mapFromAPI(
+                    link: input.link,
+                    markdown: input.markdown
+                )
             )
 		}
 	}

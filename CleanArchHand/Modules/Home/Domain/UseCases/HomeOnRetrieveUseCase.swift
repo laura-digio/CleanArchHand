@@ -23,15 +23,17 @@ struct HomeOnRetrieveUseCase: BaseUseCase {
         let businessObject = Response(isRequesting: true, indexModel: indexModel)
         completion(.success(businessObject))
 
-        repository.requestIndex { error in
-            if let error = error {
-                completion(.failure(error))
-                return
-            }
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1.5) {
+            repository.requestIndex { error in
+                if let error = error {
+                    completion(.failure(error))
+                    return
+                }
 
-            let indexModel = repository.fetchIndex()
-            let businessObject = Response(isRequesting: false, indexModel: indexModel)
-            completion(.success(businessObject))
+                let indexModel = repository.fetchIndex()
+                let businessObject = Response(isRequesting: false, indexModel: indexModel)
+                completion(.success(businessObject))
+            }
         }
     }
 }

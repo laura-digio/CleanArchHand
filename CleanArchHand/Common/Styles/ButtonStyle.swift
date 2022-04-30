@@ -13,6 +13,5 @@ struct ButtonStyle: PrimitiveButtonStyle {
 			configuration.label
                 .modifier(TextModifier())
 		}
-		.padding()
 	}
 }
