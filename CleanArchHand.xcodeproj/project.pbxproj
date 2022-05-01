@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D306060B281E981F00645E2D /* Notification+Custom.swift in Sources */ = {isa = PBXBuildFile; fileRef = D306060A281E981F00645E2D /* Notification+Custom.swift */; };
 		D31A41D428195F1A00A3D400 /* Introspect in Frameworks */ = {isa = PBXBuildFile; productRef = D31A41D328195F1A00A3D400 /* Introspect */; };
 		D3C107CD281D1F550014D7A2 /* DividerModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3C107CC281D1F550014D7A2 /* DividerModifier.swift */; };
 		D3C107D0281D288C0014D7A2 /* SafariView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3C107CF281D288C0014D7A2 /* SafariView.swift */; };
@@ -114,6 +115,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		D306060A281E981F00645E2D /* Notification+Custom.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Notification+Custom.swift"; sourceTree = "<group>"; };
 		D33D1C6127D51AB200170A06 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		D3C107CC281D1F550014D7A2 /* DividerModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DividerModifier.swift; sourceTree = "<group>"; };
 		D3C107CF281D288C0014D7A2 /* SafariView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SafariView.swift; sourceTree = "<group>"; };
@@ -248,6 +250,7 @@
 				D3C53FCB2815C0DB0000E5AC /* NSError+Generic.swift */,
 				D3C53FCC2815C0DB0000E5AC /* String+Custom.swift */,
 				D3C53FCD2815C0DB0000E5AC /* Operator+Custom.swift */,
+				D306060A281E981F00645E2D /* Notification+Custom.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -948,6 +951,7 @@
 				D3C5405A2815C0DB0000E5AC /* DetailAssembly.swift in Sources */,
 				D3C5404C2815C0DB0000E5AC /* HomeParams.swift in Sources */,
 				D3C540832815C0DB0000E5AC /* BottomMenuModifier.swift in Sources */,
+				D306060B281E981F00645E2D /* Notification+Custom.swift in Sources */,
 				D3C107D2281D2B470014D7A2 /* WebView.swift in Sources */,
 				D3C5407B2815C0DB0000E5AC /* Repository+Home.swift in Sources */,
 				D3C540612815C0DB0000E5AC /* DetailMapper.swift in Sources */,
@@ -1326,24 +1330,24 @@
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/siteline/SwiftUI-Introspect";
 			requirement = {
-				branch = master;
-				kind = branch;
+				kind = exactVersion;
+				version = 0.1.4;
 			};
 		};
 		D3C540922815C2650000E5AC /* XCRemoteSwiftPackageReference "Alamofire" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/Alamofire/Alamofire";
 			requirement = {
-				branch = master;
-				kind = branch;
+				kind = exactVersion;
+				version = 5.0.0;
 			};
 		};
 		D3C540952815C2BD0000E5AC /* XCRemoteSwiftPackageReference "realm-swift" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/realm/realm-swift";
 			requirement = {
-				branch = master;
-				kind = branch;
+				kind = exactVersion;
+				version = 10.25.2;
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */

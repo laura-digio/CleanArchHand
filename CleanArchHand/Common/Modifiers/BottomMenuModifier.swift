@@ -15,19 +15,14 @@ struct BottomMenuModifier: ViewModifier {
     @EnvironmentObject var appEnvironment: AppEnvironment
 
     func body(content: Content) -> some View {
-        NavigationView {
-            content
-                .tabItem {
-                    Image(image.rawValue)
-                        .renderingMode(.template)
-                    Text(title)
-                        .font(.custom(Assets.Fonts.interMedium.rawValue, size: 10))
-                }
-                .tag(tag)
-                .navigationTitle(title)
-        }
-        .introspectNavigationController { navigationController in
-            appEnvironment.navigationControllers[tag] = navigationController
-        }
+        content
+            .tabItem {
+                Image(image.rawValue)
+                    .renderingMode(.template)
+                Text(title)
+                    .font(.custom(Assets.Fonts.interMedium.rawValue, size: 10))
+            }
+            .tag(tag)
+            .navigationTitle(title)
     }
 }

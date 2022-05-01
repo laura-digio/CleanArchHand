@@ -22,10 +22,8 @@ struct DetailOnRetrieveUseCase: BaseUseCase {
         let businessObject = Response(isRequesting: true)
         completion(.success(businessObject))
 
-        // TODO: request markdown
-        print("Request contents of this link: \(params ?? "")")
-
-        DispatchQueue.main.asyncAfter(deadline: .now() + 1.5) {
+        repository.networkClient.requestMarkdown(params) { response in
+            print(response)
             let bo = Response(
                 isRequesting: false,
                 link: params,

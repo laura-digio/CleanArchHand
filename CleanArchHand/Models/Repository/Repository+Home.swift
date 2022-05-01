@@ -9,6 +9,7 @@
 
 import Foundation
 import RealmSwift
+import Alamofire
 
 // MARK: - Local
 
@@ -23,7 +24,7 @@ extension Repository {
 
 extension Repository {
 	func requestIndex(callback: @escaping (Error?) -> Void) {
-        networkClient.endpoint(method: .get, endpoint: .index) { response in
+        networkClient.endpoint(method: .get, endpoint: .index) { (response: DataResponse<Index, AFError>) in
             if let error = response.error {
 				callback(error)
 			} else {

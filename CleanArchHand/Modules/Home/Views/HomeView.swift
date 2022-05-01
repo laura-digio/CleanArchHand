@@ -6,6 +6,9 @@
 //  Copyright (c) 2022. All rights reserved.
 //
 
+/// Known issues:
+/// (1) stackoverflow.com/questions/65316497/swiftui-navigationview-navigationbartitle-layoutconstraints-issue
+
 import SwiftUI
 
 struct HomeView: BaseView {
@@ -14,18 +17,30 @@ struct HomeView: BaseView {
     @EnvironmentObject var appEnvironment: AppEnvironment
 
 	var body: some View {
-        switch viewObject.state {
-        case .none, .`default`:
-            HomeViewBody(
-                model: viewObject.viewModel,
-                isRequesting: viewObject.isRequesting
-            ) { link in
-                output?.detailModule(appEnvironment: appEnvironment, link: link)
-            }
-            .task {
-                output?.onRetrieve(viewObject: viewObject)
+        NavigationView {
+            switch viewObject.state {
+            case .none, .`default`:
+                HomeViewBody(
+                    model: viewObject.viewModel,
+                    isRequesting: viewObject.isRequesting
+                ) { link in
+                    output?.detailModule(appEnvironment: appEnvironment, link: link)
+                }
+                .navigationTitle("moduleHomeTitle")
+                .introspectNavigationController { navigationController in
+                    appEnvironment.navigationControllers[.home] = navigationController
+                }
+                .task {
+                    output?.onRetrieve(viewObject: viewObject)
+                }
+                .onReceive(NotificationCenter.default.publisher(
+                    for: Notification.Name.monitorConnection
+                ).dropFirst()) { _ in
+                    output?.onRetrieve(viewObject: viewObject)
+                }
             }
         }
+        .navigationViewStyle(.stack) // fix for iOS know issue (1)
 	}
 }
 
@@ -35,22 +50,24 @@ struct HomeViewBody: View {
     let onTap: ((String?)->Void)?
 
     var body: some View {
-        ScrollView(.vertical) {
-            LazyVStack(spacing: 0) {
-                if let topics = model?.topics {
+        if let topics = model?.topics {
+            ScrollView(.vertical) {
+                LazyVStack(spacing: 0) {
                     ForEach(topics, id: \.self) { topic in
                         MainCellView(label: topic.title) {
                             onTap?(topic.link)
                         }
                     }
                 }
-                else {
-                    Text("...")
-                        .redacted(reason: isRequesting ?? true ? .placeholder : [])
-                }
             }
+            .padding(.vertical, 20)
         }
-        .padding(.vertical, 20)
+        else {
+            VStack {
+                Text("...")
+            }
+            .redacted(reason: isRequesting ?? true ? .placeholder : [])
+        }
     }
 }
 

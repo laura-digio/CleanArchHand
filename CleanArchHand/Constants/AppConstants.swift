@@ -8,7 +8,7 @@
 import SwiftUI
 
 enum AppConstants {
-	static let helpUrl = "http://www.google.es"
+    static let monitorConnectionKey = "monitorConnectionKey"
 
     enum BottomMenuSelection {
         case home
