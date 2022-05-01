@@ -1330,24 +1330,24 @@
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/siteline/SwiftUI-Introspect";
 			requirement = {
-				kind = exactVersion;
-				version = 0.1.4;
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.1.4;
 			};
 		};
 		D3C540922815C2650000E5AC /* XCRemoteSwiftPackageReference "Alamofire" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/Alamofire/Alamofire";
 			requirement = {
-				kind = exactVersion;
-				version = 5.0.0;
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.6.1;
 			};
 		};
 		D3C540952815C2BD0000E5AC /* XCRemoteSwiftPackageReference "realm-swift" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/realm/realm-swift";
 			requirement = {
-				kind = exactVersion;
-				version = 10.25.2;
+				kind = upToNextMajorVersion;
+				minimumVersion = 10.25.2;
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */

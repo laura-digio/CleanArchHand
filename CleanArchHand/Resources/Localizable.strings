@@ -12,6 +12,8 @@
 "errorGenericTitle" = "Oops. Something went wrong. Try again!";
 
 // M
-"moduleHomeTitle" = "Topics";
+"moduleHomeTitle" = "Code";
+"moduleTalkTitle" = "Talk";
+"moduleTeamTitle" = "Team";
 
 // Z

@@ -12,5 +12,7 @@ enum AppConstants {
 
     enum BottomMenuSelection {
         case home
+        case team
+        case talk
     }
 }

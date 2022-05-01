@@ -51,7 +51,7 @@ struct HomeViewBody: View {
 
     var body: some View {
         if let topics = model?.topics {
-            ScrollView(.vertical) {
+            ScrollView(.vertical, showsIndicators: false) {
                 LazyVStack(spacing: 0) {
                     ForEach(topics, id: \.self) { topic in
                         MainCellView(label: topic.title) {

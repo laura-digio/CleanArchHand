@@ -23,11 +23,10 @@ struct DetailOnRetrieveUseCase: BaseUseCase {
         completion(.success(businessObject))
 
         repository.networkClient.requestMarkdown(params) { response in
-            print(response)
             let bo = Response(
                 isRequesting: false,
                 link: params,
-                markdown: "[Google](google.es)"
+                markdown: response.value
             )
             completion(.success(bo))
         }

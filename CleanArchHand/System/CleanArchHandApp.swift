@@ -20,8 +20,22 @@ struct CleanArchHandApp: App {
                 HomeWireframe(params: HomeParams(initialState: .default)).view
                     .modifier(BottomMenuModifier(
                         title: "moduleHomeTitle".localized(),
-                        image: Assets.Images.iconApple,
+                        image: Image(systemName: "chevron.left.forwardslash.chevron.right"),
                         tag: .home
+                    ))
+                // Tab 2
+                EmptyTab(navigationTitle: "moduleTeamTitle", bottomMenuSelection: .team)
+                    .modifier(BottomMenuModifier(
+                        title: "moduleTeamTitle".localized(),
+                        image: Image(systemName: "person.3"),
+                        tag: .team
+                    ))
+                // Tab 3
+                EmptyTab(navigationTitle: "moduleTalkTitle", bottomMenuSelection: .talk)
+                    .modifier(BottomMenuModifier(
+                        title: "moduleTalkTitle".localized(),
+                        image: Image(systemName: "bubble.left"),
+                        tag: .talk
                     ))
             }
             .introspectTabBarController { tabBarController in
@@ -29,6 +43,25 @@ struct CleanArchHandApp: App {
             }
             .environmentObject(appEnvironment)
         }
+    }
+}
+
+struct EmptyTab: View {
+    let navigationTitle: LocalizedStringKey
+    let bottomMenuSelection: AppConstants.BottomMenuSelection
+    @EnvironmentObject var appEnvironment: AppEnvironment
+
+    var body: some View {
+        NavigationView {
+            ScrollView(.vertical, showsIndicators: false) {
+                Text("...")
+            }
+            .navigationTitle(navigationTitle)
+            .introspectNavigationController { navigationController in
+                appEnvironment.navigationControllers[bottomMenuSelection] = navigationController
+            }
+        }
+        .navigationViewStyle(.stack) // fix for iOS know issue (1)
     }
 }
 

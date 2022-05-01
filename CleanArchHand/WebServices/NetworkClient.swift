@@ -46,8 +46,12 @@ struct NetworkClient {
         request.responseDecodable(of: T.self, completionHandler: callback)
     }
 
-    func requestMarkdown(_ link: String?, callback: @escaping (String) -> Void) {
-        callback("")
+    func requestMarkdown(
+        _ link: String?,
+        callback: @escaping (DataResponse<String, AFError>) -> Void
+    ) {
+        let request = session.request(link ?? "")
+        request.responseString(completionHandler: callback)
     }
 }
 

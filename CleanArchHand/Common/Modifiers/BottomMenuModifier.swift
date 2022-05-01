@@ -9,16 +9,27 @@ import SwiftUI
 
 struct BottomMenuModifier: ViewModifier {
     let title: String
-    let image: Assets.Images
+    let image: Image
     let tag: AppConstants.BottomMenuSelection
+
+    init(title: String, image: Assets.Images, tag: AppConstants.BottomMenuSelection) {
+        self.title = title
+        self.image = Image(image.rawValue)
+        self.tag = tag
+    }
+
+    init(title: String, image: Image, tag: AppConstants.BottomMenuSelection) {
+        self.title = title
+        self.image = image
+        self.tag = tag
+    }
 
     @EnvironmentObject var appEnvironment: AppEnvironment
 
     func body(content: Content) -> some View {
         content
             .tabItem {
-                Image(image.rawValue)
-                    .renderingMode(.template)
+                image.renderingMode(.template)
                 Text(title)
                     .font(.custom(Assets.Fonts.interMedium.rawValue, size: 10))
             }

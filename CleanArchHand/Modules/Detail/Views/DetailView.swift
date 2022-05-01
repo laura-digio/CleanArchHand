@@ -47,8 +47,11 @@ struct DetailViewBody: View {
                     }
         }
         else {
-            Text(model?.link ?? "")
-            Text(model?.markdown ?? "")
+            ScrollView(.vertical, showsIndicators: false) {
+                if let markdown = try? AttributedString(markdown: model?.markdown ?? "") {
+                    Text(markdown)
+                }
+            }
         }
     }
 }
