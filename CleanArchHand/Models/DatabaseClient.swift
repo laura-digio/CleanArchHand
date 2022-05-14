@@ -28,7 +28,7 @@ struct DatabaseClient {
     }
 
     private func setupRealm(databaseName: String) {
-        var config = Realm.Configuration(schemaVersion: 1, migrationBlock: migrateIfNeeded)
+        var config = Realm.Configuration(schemaVersion: 2, migrationBlock: migrateIfNeeded)
 		if let fileURL = config.fileURL {
 			config.fileURL = fileURL.deletingLastPathComponent().appendingPathComponent("\(databaseName).realm")
 			Realm.Configuration.defaultConfiguration = config

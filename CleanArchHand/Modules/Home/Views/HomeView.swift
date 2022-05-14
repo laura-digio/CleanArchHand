@@ -40,7 +40,7 @@ struct HomeView: BaseView {
                 }
             }
         }
-        .navigationViewStyle(.stack) // fix for iOS know issue (1)
+        .navigationViewStyle(.stack) // hack to fix iOS SDK known issue (1)
 	}
 }
 
@@ -50,12 +50,19 @@ struct HomeViewBody: View {
     let onTap: ((String?)->Void)?
 
     var body: some View {
-        if let topics = model?.topics {
+        if let groups = model?.groups {
             ScrollView(.vertical, showsIndicators: false) {
                 LazyVStack(spacing: 0) {
-                    ForEach(topics, id: \.self) { topic in
-                        MainCellView(label: topic.title) {
-                            onTap?(topic.link)
+                    ForEach(groups, id: \.self) { group in
+                        Section(
+                            header: MainSectionView(label: group.name ?? "-").padding(.horizontal, 20),
+                            footer: Spacer().frame(height: 40)
+                        ) {
+                            ForEach(group.topics, id: \.self) { topic in
+                                MainCellView(label: topic.title) {
+                                    onTap?(topic.link)
+                                }
+                            }
                         }
                     }
                 }
@@ -74,7 +81,7 @@ struct HomeViewBody: View {
 #if DEBUG
 struct HomeViewBody_Previews: PreviewProvider {
     static var previews: some View {
-        HomeViewBody(model: HomeViewModel(topics: []), isRequesting: true, onTap: nil)
+        HomeViewBody(model: HomeViewModel(groups: []), isRequesting: true, onTap: nil)
     }
 }
 #endif

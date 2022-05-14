@@ -17,7 +17,7 @@ struct NetworkClient {
     init() {
         let configuration = URLSessionConfiguration.af.default
         configuration.timeoutIntervalForRequest = 20
-        configuration.requestCachePolicy = .useProtocolCachePolicy
+        configuration.requestCachePolicy = .reloadIgnoringLocalAndRemoteCacheData
 
         #if DEBUG
         self.session = Session(
